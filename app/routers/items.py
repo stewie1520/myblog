@@ -12,6 +12,16 @@ class Item(BaseModel):
     price: float = Field(..., gt=0, description="The price must be greater than zero")
     tax: Optional[float] = None
 
+    class Config:
+        schema_extra = {
+            "example": {
+                "name": "Foo",
+                "description": "A very nice item",
+                "price": 35.4,
+                "tax": 4.2,
+            }
+        }
+
 
 class User(BaseModel):
     username: str
